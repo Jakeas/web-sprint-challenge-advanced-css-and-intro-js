@@ -243,14 +243,18 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(arr){
-  const newArr = []
-  for(let i=0; i<artists.length; i++){
-    let yearSplit = arr[i].years.split(" - ")
-    if(yearSplit >=1900 && yearSplit <= 1999){
-      console.log("yearSplit:", yearSplit) 
-      return newArr.push(yearSplit)
+  let newArr = []
+  for(let i=0; i<arr.length; i++){
+    // arr[i].years
+    let yearsSplit = arr[i].years.split("-")
+
+    if(yearsSplit[0] >=1900 && yearsSplit[1] <= 1999){
+     console.log("newArr:", newArr) 
+      // return newArr.push(arr[i].name)
+      newArr.push(arr[i].name)
     }
-  } console.log("newArr:", newArr)
+  } 
+  // console.log("newArr:", newArr)
   return newArr
 }
 console.log("Task 4:", get20s(artists))
@@ -292,13 +296,13 @@ function addArtist(arr){
   arr.push({ 
       "id": 20,
       "name": "Jacob Sierra", 
-      "years": "1986 - current day",
+      "years": "1986 - 2020",
       "genre": "Web Design", 
       "nationality": "Your Nationality Here",
       "bio": "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers."
     }); return arr
   }
-console.log(addArtist(artists))
+// console.log(addArtist(artists))
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -308,10 +312,16 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(arr){
+  let manyPaintings = []
+  for(let i=0; i < arr.length; i++){
+    if(arr[i].paintings >= 100){
+      manyPaintings.push(arr[i].name)
+    }
+  }
+  return manyPaintings 
 }
-
+// console.log("Task 7:", lotsOfArt(artists))
 
 
 
